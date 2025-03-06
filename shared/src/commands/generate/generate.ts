@@ -31,6 +31,50 @@ function loadFile(path: string): object {
         }
         process.exit(1);
     }
+
+}
+
+interface CALMOption {
+    choices: CALMChoice[];
+}
+
+interface CALMChoice {
+    description: string;
+    nodes: string[];
+    relationships: string[];
+}
+
+export async function optionsFor(patternPath: string, debug: boolean, instantiateAll: boolean, schemaDirectoryPath?: string, schemaDirectory?: any): Promise<CALMOption[]> {
+    return [
+       {
+        choices: [
+            {
+                description: 'Application A connects to Application C',
+                nodes: ['application-a', 'application-c'],
+                relationships: ['application-a-to-c']
+            },
+            {
+                description: 'Application B connects to Application C',
+                nodes: ['application-b', 'application-c'],
+                relationships: ['application-b-to-c']
+            }
+        ]
+       },
+         {
+          choices: [
+                {
+                 description: 'Application D connects to Application F',
+                 nodes: ['application-d', 'application-f'],
+                 relationships: ['application-d-to-f']
+                },
+                {
+                 description: 'Application E connects to Application F',
+                 nodes: ['application-e', 'application-f'],
+                 relationships: ['application-e-to-f']
+                }
+          ]
+         }
+    ];
 }
 
 
