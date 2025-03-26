@@ -1,31 +1,33 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist",
-    "module": "CommonJS",
-    "target": "ES6",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "types": [
-      "node",
-      "jest"
-    ],
-    "typeRoots": [
-      "node_modules/@types",
-      "../node_modules/@types"
-    ]
+      "target": "ES2022", // Align with shared for consistency
+      "module": "ESNext", // Use ESNext for modern module syntax
+      "moduleResolution": "node", // Use Node.js-style module resolution
+      "outDir": "./dist",
+      "rootDir": "src",
+      "typeRoots": [
+          "node_modules/@types",
+          "../node_modules/@types"
+      ],
+      "strict": true, // Enable strict type checking
+      "lib": [
+          "ESNext"
+      ],
+      "declaration": true, // Generate declaration files for CLI
+      "declarationMap": true, // Enable source maps for declarations
+      "sourceMap": true, // Enable source maps for debugging
+      "esModuleInterop": true, // Ensure compatibility with CommonJS modules
+      "forceConsistentCasingInFileNames": true, // Enforce consistent casing in imports
+      "skipLibCheck": true, // Skip type checking of declaration files
+      "resolveJsonModule": true // Allow importing JSON files
   },
-  "references": [
-    {
-      "path": "../shared"
-    }
-  ],
   "include": [
-    "src/**/*",
-    "package.json"
+      "src/**/*",
+      "src/**/*.spec.ts" // Ensure test files are included
+  ],
+  "exclude": [
+      "node_modules",
+      "dist" // Exclude output directory
   ]
 }

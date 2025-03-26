@@ -114,7 +114,7 @@ export class TemplateProcessor {
 
         try {
             // eslint-disable-next-line @typescript-eslint/no-require-imports
-            const transformerModule = require(transformerFilePath);
+            const transformerModule = import(transformerFilePath);
             const TransformerClass = transformerModule.default || transformerModule;
             return new TransformerClass();
         } catch (error) {

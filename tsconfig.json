@@ -5,32 +5,18 @@
             "@finos/calm-shared": ["shared/src"],
             "@finos/calm-shared/*": ["shared/src/*"]
         },
+        "lib": [
+            "esnext"
+        ],
         "composite": true,
         "declaration": true,
         "declarationMap": true,
-        "target": "es2021",
-        "module": "commonjs",
-        "moduleResolution": "node",
+        "target": "es2016",
+        "module": "NodeNext",
         "esModuleInterop": true,
+        "resolveJsonModule": true,
         "sourceMap": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "outDir": "./dist",
-        "rootDir": ".",
-        "typeRoots": [
-            "node_modules/@types"
-        ]
-    },
-    "references": [
-        { "path": "./shared" },
-        { "path": "./cli" }
-    ],
-    "include": [
-        "shared/**/*",
-        "cli/**/*"
-    ],
-    "exclude": [
-        "node_modules",
-        "dist"
-    ]
+    }
 }
