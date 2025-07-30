@@ -16,14 +16,67 @@
       "groupName": "lockfile-maintenance"
     },
     {
-      "groupName": "minor-dependencies",
-      "matchUpdateTypes": ["minor"],
+      "groupName": "patch-dependencies",
+      "matchUpdateTypes": ["patch"],
       "automerge": true,
-      "automergeType": "pr"
+      "automergeType": "pr",
+      "groupSlug": "patch-deps"
     },
     {
-      "matchUpdateTypes": ["patch"],
-      "enabled": false
+      "groupName": "cli-minor-dependencies",
+      "matchUpdateTypes": ["minor"],
+      "matchPaths": ["cli/**"],
+      "automerge": false,
+      "groupSlug": "cli-minor",
+      "prCreationLimit": 2
+    },
+    {
+      "groupName": "shared-minor-dependencies", 
+      "matchUpdateTypes": ["minor"],
+      "matchPaths": ["shared/**"],
+      "automerge": false,
+      "groupSlug": "shared-minor",
+      "prCreationLimit": 2
+    },
+    {
+      "groupName": "docs-minor-dependencies",
+      "matchUpdateTypes": ["minor"], 
+      "matchPaths": ["docs/**"],
+      "automerge": false,
+      "groupSlug": "docs-minor",
+      "prCreationLimit": 2
+    },
+    {
+      "groupName": "ui-minor-dependencies",
+      "matchUpdateTypes": ["minor"],
+      "matchPaths": ["calm-hub-ui/**"],
+      "automerge": false,
+      "groupSlug": "ui-minor",
+      "prCreationLimit": 2
+    },
+    {
+      "groupName": "root-minor-dependencies",
+      "matchUpdateTypes": ["minor"],
+      "matchPaths": ["package.json", "pom.xml"],
+      "automerge": false,
+      "groupSlug": "root-minor",
+      "prCreationLimit": 2
+    },
+    {
+      "groupName": "test-dependencies",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackagePatterns": ["^@?vitest", "^@vitest/", "^@types/", "test", "mock", "jest"],
+      "automerge": false,
+      "groupSlug": "test-deps",
+      "prCreationLimit": 1
+    },
+    {
+      "groupName": "eslint-dependencies",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackagePatterns": ["eslint", "^@eslint/", "^@typescript-eslint/"],
+      "automerge": false,
+      "groupSlug": "eslint-deps",
+      "prCreationLimit": 1
     }
   ]
 }
